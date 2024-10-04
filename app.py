@@ -15,7 +15,6 @@ Background_Page = '''
     [data-testid="stToolbar"] {
         right: 2rem;
     }
-
     [data-testid="stVerticalBlockBorderWrapper"] {
         background: linear-gradient(135deg, rgba(255,255,255,0.18));
         backdrop-filter: blur(10px);
@@ -30,18 +29,26 @@ Background_Page = '''
         display: contents;
         padding: 10%
     }
-
     [data-testid="stTextInputRootElement"] {
         border-radius: 15px;
         border-color: white;
-        background-color: black
-        
+    }
+    [data-testid="stTextInputRootElement"]:hover{
+        border-color: grey;
+    }
+    [id="text_input_1"]{
+        background-color: black;
     }
     [data-testid="stBaseButton-secondary"] {
         border-color: white;
         margin-top: 20px;
-        width: 120px
+        width: 120px;
+        background-color: black;
     }  
+    [data-testid="stBaseButton-secondary"]:hover{
+        border-color: grey;
+        -webkit-text-fill-color: grey;
+    }
     [data-testid="stBaseButton-headerNoPadding"] {
         visibility: hidden;
     }
@@ -53,7 +60,3 @@ st.markdown(Background_Page, unsafe_allow_html=True)
 with st.container(border=True,height=250):
     user_name = st.text_input(f"{":bust_in_silhouette:"} Username", max_chars=16)
     finish = st.button("Done")
-if user_name and finish:
-    st.switch_page("pages/Home.py")
-elif not user_name and finish:
-    st.error("Enter your name please")
