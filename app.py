@@ -1,29 +1,59 @@
 import streamlit as st
 
 # Använding av css för att byta backgrounden (för streamlit har inte)
-page_bg_img = '''
-<style>
-[data-testid="stAppViewContainer"] {
-    background-image: url("https://www.pixelstalk.net/wp-content/uploads/image10/A-purple-space-4K-OLED-Desktop-Wallpaper-with-geometric-shapes-and-patterns-intersecting-a-starry-background-creating-a-modern-and-artistic-look.jpg");
-    background-size: cover;
-    background-position: center;
-}
-[data-testid="stHeader"] {
-    background: rgba(0,0,0,0);
-}
-[data-testid="stToolbar"] {
-    right: 2rem;
-}
-</style>
-'''
+Background_Page = '''
+    <style>
+    [data-testid="stAppViewContainer"] {
+        background-image: url("https://asset.gecdesigns.com/img/wallpapers/beautiful-fantasy-wallpaper-ultra-hd-wallpaper-4k-sr10012418-1706506236698-cover.webp");
+        background-size: cover;
+        background-position: center;
+        align-items: center;
+    }
+    [data-testid="stHeader"] {
+        background: rgba(0,0,0,0);
+    }
+    [data-testid="stToolbar"] {
+        right: 2rem;
+    }
 
-# Med hjälp av markdown kan vi använda css
-st.markdown(page_bg_img, unsafe_allow_html=True)
-st.markdown("", unsafe_allow_html=True)
+    [data-testid="stVerticalBlockBorderWrapper"] {
+        background: linear-gradient(135deg, rgba(255,255,255,0.18));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+        align-content: center;
+        text-align: center;
+    }
+    [data-testid="stVerticalBlock"] {
+        display: contents;
+        padding: 10%
+    }
 
-# Pengar insättning
-dina_pengar = 0
-
-st.title("Här kan du välja ett namn för dig")
-with st.container(border=True):   
-    user_name = st.text_input("Användarnamn", max_chars=16)
+    [data-testid="stTextInputRootElement"] {
+        border-radius: 15px;
+        border-color: white;
+        background-color: black
+        
+    }
+    [data-testid="stBaseButton-secondary"] {
+        border-color: white;
+        margin-top: 20px;
+        width: 120px
+    }  
+    [data-testid="stBaseButton-headerNoPadding"] {
+        visibility: hidden;
+    }
+    </style>
+    '''
+    # Med hjälp av markdown kan vi använda css
+st.markdown(Background_Page, unsafe_allow_html=True)
+    
+with st.container(border=True,height=250):
+    user_name = st.text_input(f"{":bust_in_silhouette:"} Username", max_chars=16)
+    finish = st.button("Done")
+if user_name and finish:
+    st.switch_page("pages/Home.py")
+elif not user_name and finish:
+    st.error("Enter your name please")
