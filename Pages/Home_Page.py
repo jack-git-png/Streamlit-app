@@ -18,8 +18,6 @@ def saved(name,title,content,week_num,time_stamp):
         }
     )
 
-
-
 Styling = '''
 <style>
 [data-testid="stAppViewContainer"] {
@@ -57,7 +55,7 @@ Styling = '''
     display: contents;
     
 }
-
+</style>
 '''
 
 st.markdown(Styling, unsafe_allow_html=True)
