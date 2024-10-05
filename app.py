@@ -53,7 +53,7 @@ def Welcome_Page():
     st.markdown(Background_Page, unsafe_allow_html=True)
         
     with st.container(border=True,height=250):
-        user_name = st.text_input(f"{"👤"} Username", max_chars=16)
+        user_name = st.text_input("Username", max_chars=16)
         finish = st.button("Done")
     if user_name and finish:
         st.switch_page("pages/Home_Page.py")
