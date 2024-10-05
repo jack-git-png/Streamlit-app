@@ -56,7 +56,7 @@ def Welcome_Page():
         user_name = st.text_input("Username", max_chars=16)
         finish = st.button("Done")
     if user_name and finish:
-        st.switch_page("Pages/Home_Page.py")
+        st.switch_page("Home_Page")
     elif not user_name and finish:
         st.error("Enter your name please")
 
