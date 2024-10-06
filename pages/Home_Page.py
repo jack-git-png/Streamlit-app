@@ -1,63 +1,63 @@
 import streamlit as st
-import datetime
-import boto3 
-
-AWS_REGION = "us-east-1"
-dynamodb = boto3.resource("dynamodb", region_name=AWS_REGION)
-table = dynamodb.Table("Inlägg")
-
-today = datetime.datetime.today()
-
-def saved(name,title,content,week_num,time_stamp):
-    table.put_item(
-        Items={
-            'name': name,
-            'title': title,
-            'content': content,
-            'week_num': week_num,
-            'time_stamp': time_stamp
-        }
-    )
 
 Styling = '''
 <style>
-[data-testid="stAppViewContainer"] {
-    background-image: url(https://i.pinimg.com/originals/a8/55/df/a855df51ab9b3b503221419fd614970f.png);
+
+.st-emotion-cache-1yiq2ps{
+    background-image: url("https://i.pinimg.com/originals/a8/55/df/a855df51ab9b3b503221419fd614970f.png");
     background-size: cover;
+    position: absolute;
     background-position: center;
+    justify-content: center;
     align-items: center;
+    
 }
+
 [data-testid="stHeader"] {
     background: rgba(0,0,0,0);
 }
+
 [data-testid="stToolbar"] {
     right: 2rem;
 }
+
 [data-testid="stBaseButton-secondary"] {
     padding: 30px;
-    margin-top: 32%;
+    margin-top: 30%;
     height: 80px;
     border-color: white;
-    background-image: url(https://e0.pxfuel.com/wallpapers/90/509/desktop-wallpaper-light-sky-stars-background-ambient-light.jpg);
+    background-image: url(https://thumbs.dreamstime.com/b/vector-landscape-blue-sky-clouds-sunset-anime-cartoon-clean-style-background-design-171922579.jpg);
     background-repeat: no-repeat;
     box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
     align-content: center
+    
 }
-[data-testid="stAppViewContainer"]::before {
-    filter: blur(2px)
-}
+
 [data-testid="stVerticalBlockBorderWrapper"] {
     text-align: center;
-    border-radius: 100px;
+    border-radius: 40px;
     border-color: white;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(1px);
-    align-contents: center
-    backdrop-filter: drop-shadow(0 8px 32px 0 rgba(0,0,0,0.37);)
+    align-contents: center;
+    backdrop-filter: drop-shadow(0 8px 32px 0 rgba(0,0,0,0.37));
+    
 }
 [data-testid="stVerticalBlock"] {
     display: contents;
-    
+}
+
+[data-testid="stMarkdownContainer"]{
+    color: #fff;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 90px #0fa,
+    0 0 120px #0fa; 
 }
 </style>
 '''
@@ -72,3 +72,5 @@ with st.container(border=True,height=300):
         Settings = st.button("Settings")
     if Docs:
         st.switch_page("pages/Documment.py")
+    if Settings:
+        st.switch_page("pages/Settings.py")
