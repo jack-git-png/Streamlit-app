@@ -1,0 +1,20 @@
+/* SelectBox class */
+.st-key-week div{
+    border-color: white;
+}
+
+/* TextArea class */
+.st-key-docs div{
+    border-color: white;
+}
+
+/* TextInput Class */
+.st-key-title div{
+    border-color: white;
+}
+
+/* Button class */
+.st-key-saving button{
+    width: 100px;
+    border-color: white;
+}
