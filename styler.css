@@ -5,16 +5,36 @@
 
 /* TextArea class */
 .st-key-docs div{
-    border-color: white;
+    border-color: rgb(255, 0, 0);
 }
 
 /* TextInput Class */
 .st-key-title div{
     border-color: white;
+    
 }
 
 /* Button class */
 .st-key-saving button{
     width: 100px;
     border-color: white;
+    margin-top: 10px;
+}
+
+.stSidebar{
+    visibility: hidden;
+    display: none;
+}
+
+.st-key-text_input input{
+    background-color: black;
+}
+
+.stVerticalBlock{
+    display: contents;
+    padding: 10%
+}
+
+.stBaseButton-headerNoPadding{
+    visibility: hidden;
 }
