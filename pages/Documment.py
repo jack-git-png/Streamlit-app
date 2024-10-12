@@ -2,16 +2,21 @@ import boto3.dynamodb
 import streamlit as st
 import datetime
 import boto3 
-import pathlib
 from streamlit_option_menu import option_menu
 from boto3.dynamodb.conditions import Attr
 
-def load_css(file_path):
-    with open(file_path) as f:
-        st.html(f"<style>{f.read()}</style>")
+styling = '''
+<style>
+[data-testid="stTextInputRootElement"]{
+    border-color: white;
+}
+[data-testid="stSelectbox"]{
+    border-color: white;
+}
 
-css_path = pathlib.Path("styler.css")
-load_css(css_path)
+</style>
+'''
+st.markdown(styling,unsafe_allow_html=True)
 
 navigation_bar = option_menu(
     menu_title=None,
@@ -45,7 +50,6 @@ def data_saving(content,title,week_num,time_stamp):
             'timestamp': time_stamp
         }
     )
-
 # Will save it according to the current week
 def get_savings_by_week(week):
     try:
@@ -81,9 +85,10 @@ if not items:
    st.info(f"No saved documents found for this week.") # will show if it exists in the data or not for the specific week
 
 else: # Then here is what it would show when we save
-   for item in items:
-    st.write(f"**Title:** {item['title']}")
-    st.write(f"**Content:** {item['content']}")
-    st.write(f"**Vecka:** {item['week']}")
-    st.write(f"**Date:** {item['timestamp']}")
-    st.write('---')
+   with st.container(border=True,height=200):
+    for item in items:
+        st.write(f"**Title:** {item['title']}")
+        st.write(f"**Content:** {item['content']}")
+        st.write(f"**Week:** {item['week']}")
+        st.write(f"**Date:** {item['timestamp']}")
+        st.write('---')
